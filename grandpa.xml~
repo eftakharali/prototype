@@ -51,8 +51,6 @@
       </table>
     </p>
     <hr/>
-
-<div id="result"></div>
     <center>
       <iframe border="0" id="response">
       </iframe>

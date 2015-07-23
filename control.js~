@@ -1,7 +1,4 @@
-var message_client = new Messaging.Client("192.168.0.9", 1883, '_' + Math.random().toString(36).substr(2, 9));
-
-var base_uri = 'https://dl.dropboxusercontent.com/u/11198597/telemba/hangouts/';
-https://www.dropbox.com/sh/l8023brn5yy8r8h/AACLNzULCw5R9to3lo8L7h5ka?dl=0
+var message_client = new Messaging.Client("192.168.0.9", 8080, '_' + Math.random().toString(36).substr(2, 9));
 
 
 message_client.onConnectionLost = function(rc){
@@ -38,7 +35,7 @@ function my_connect(){
     }
     
 
-function my_publish(mes){
+function navigate(mes){
     
  console.log ("owner is "+ gapi.hangout.data.getValue('owner'));
     
@@ -49,7 +46,7 @@ function my_publish(mes){
          resEl.innerHTML = mes;
 	
         var message = new Messaging.Message(mes);
-        message.destinationName = "grandpa/"+usr+"/command" ;
+        message.destinationName = "topic"+mes ;
         console.log( mes + " to " + message.destinationName ) ;
         message_client.send(message);
     }
@@ -57,7 +54,7 @@ function my_publish(mes){
 
 function my_subscribe(){
     if ( message_client._client.connected ){
-        var topic = "grandpa/"+usr+"/data" ;
+        var topic = "grandpa";
         message_client.subscribe(topic);
     }
 }

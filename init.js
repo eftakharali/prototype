@@ -6,7 +6,7 @@ function init() {
 		//initVideoCanvas(230,80);
 		
 	
-		initOwnerFramework();
+		//initOwnerFramework();
             }
         });
 }
